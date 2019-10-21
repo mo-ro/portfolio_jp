@@ -11,5 +11,8 @@
     "noUnusedLocals": false,
     "allowJs": true
   },
+  "paths": {
+    "@components/*": ["./src/components/*"]
+  },
   "exclude": ["node_modules", "public", ".cache"]
 }

@@ -11,6 +11,7 @@ module.exports = {
     "eslint:recommended",
     "plugin:react/recommended"
   ],
+  "parser": "babel-eslint",
   "parserOptions": {
     "ecmaFeatures": {
       "jsx": true
@@ -24,5 +25,6 @@ module.exports = {
   ],
   "rules": {
     "prettier/prettier": "error",
+    "react/prop-types": 0
   }
 }
