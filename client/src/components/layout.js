@@ -16,7 +16,7 @@ import { ThemeProvider } from "styled-components";
 import * as theme from "../theme";
 
 const Layout = ({ children }) => {
-  console.log(theme)
+  console.log(theme);
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
