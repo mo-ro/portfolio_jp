@@ -1,5 +1,5 @@
 const colors = {
-  black: ["#aaa", "#000"],
+  black: "#333333",
 };
 
 export default colors;

@@ -16,7 +16,12 @@ const IndexPage = () => (
     <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
       <Image />
     </div>
-    <Box bg="black">fdfdfd</Box>
+    <Box bg="black" skew={{ way: "horizontal", amount: "positive" }}>
+      fdfdfd
+    </Box>
+    <Box bg="white" skew={{ way: "vertical", amount: "positive" }}>
+      fdfdfd
+    </Box>
     <Link to="/page-2/">Go to page 2</Link>
   </Layout>
 );
