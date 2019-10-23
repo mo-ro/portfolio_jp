@@ -6,7 +6,7 @@ import Image from "../components/image";
 import SEO from "../components/seo";
 
 import Box from "@components/Box";
-import { themeGet } from "@styled-system/theme-get";
+import Avatar from "@components/Avatar";
 
 const IndexPage = props => (
   <Layout>
@@ -17,7 +17,6 @@ const IndexPage = props => (
     <Box hasBg skew={{ way: "horizontal", amount: "positive" }}>
       fdfdfd
     </Box>
-    {console.log(themeGet("black")(props))}
     <Box
       gradient="colors.gradient.blue"
       hasBg
@@ -25,6 +24,7 @@ const IndexPage = props => (
     >
       fdfdfd
     </Box>
+    <Avatar src="https://pbs.twimg.com/profile_images/1176835197372731392/MhDRmYmU_400x400.jpg"></Avatar>
     <Link to="/page-2/">Go to page 2</Link>
   </Layout>
 );

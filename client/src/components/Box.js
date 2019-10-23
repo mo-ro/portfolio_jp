@@ -11,7 +11,7 @@ import {
   layout,
 } from "styled-system";
 import PropTypes from "prop-types";
-
+import systemPropTypes from "@styled-system/prop-types";
 import bgImage from "@images/bg/pattern.svg";
 import { themeGet } from "@styled-system/theme-get";
 
@@ -80,12 +80,13 @@ const Wrapper = styled.div`
 Box.propTypes = {
   as: PropTypes.oneOf(["div", "button", "a"]),
   children: PropTypes.node,
-  bg: PropTypes.string,
   skew: PropTypes.shape({
     way: PropTypes.oneOf(["horizontal", "vertical"]),
     amount: PropTypes.oneOf(["positive", "negative"]),
   }),
   hasBg: PropTypes.bool,
+  gradient: PropTypes.string,
+  ...systemPropTypes.background,
 };
 
 export default Box;
