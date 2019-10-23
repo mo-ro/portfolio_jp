@@ -13,6 +13,7 @@ import {
 import PropTypes from "prop-types";
 
 import bgImage from "@images/bg/pattern.svg";
+import { themeGet } from "@styled-system/theme-get";
 
 const Box = ({ children, ...props }) => (
   <Wrapper border="2" borderColor="black" boxShadow="medium" {...props}>
@@ -59,6 +60,9 @@ const Wrapper = styled.div`
   overflow: hidden;
   position: relative;
   transform-origin: top left;
+
+  ${props =>
+    props.gradient && `background: ${themeGet(props.gradient)(props)};`}
 
   ${props =>
     props.hasBg &&
