@@ -5,11 +5,14 @@ import {
   width,
   fontSize,
   color,
+  background,
   border,
   shadow,
   layout,
 } from "styled-system";
 import PropTypes from "prop-types";
+
+import bgImage from "@images/bg/pattern.svg";
 
 const Box = ({ children, ...props }) => (
   <Wrapper border="2" borderColor="black" boxShadow="medium" {...props}>
@@ -25,6 +28,7 @@ const Wrapper = styled.div`
   ${border}
   ${shadow}
   ${layout}
+  ${background}
 
   ${props => {
     let direction;
@@ -46,12 +50,27 @@ const Wrapper = styled.div`
       }
       return `
         transform: skew${direction}(${amount}deg);
-        && > * {transform: skew${direction}(${-1 * amount}deg)}
+        && > *, &&::before {transform: skew${direction}(${-1 * amount}deg)}
       `;
     }
   }}
 
   box-sizing: border-box;
+  overflow: hidden;
+  position: relative;
+  transform-origin: top left;
+
+  ${props =>
+    props.hasBg &&
+    `&&::before {
+      position: absolute;
+      height: 150%;
+      width: 120%;
+      display: block;
+      content: "";
+      background-image: url(${bgImage});
+      transform-origin: top left;
+    }`}
 `;
 
 Box.propTypes = {
@@ -62,6 +81,7 @@ Box.propTypes = {
     way: PropTypes.oneOf(["horizontal", "vertical"]),
     amount: PropTypes.oneOf(["positive", "negative"]),
   }),
+  hasBg: PropTypes.bool,
 };
 
 export default Box;

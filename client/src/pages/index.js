@@ -6,8 +6,9 @@ import Image from "../components/image";
 import SEO from "../components/seo";
 
 import Box from "@components/Box";
+import { themeGet } from "@styled-system/theme-get";
 
-const IndexPage = () => (
+const IndexPage = props => (
   <Layout>
     <SEO title="Home" />
     <h1>Hi people</h1>
@@ -16,10 +17,16 @@ const IndexPage = () => (
     <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
       <Image />
     </div>
-    <Box bg="black" skew={{ way: "horizontal", amount: "positive" }}>
+    <Box hasBg skew={{ way: "horizontal", amount: "positive" }}>
       fdfdfd
     </Box>
-    <Box bg="white" skew={{ way: "vertical", amount: "positive" }}>
+    {console.log(themeGet("colors.black")(props))}
+    <Box
+      backgroundImage={themeGet("colors.gradient.blue")}
+      bg="gradient.blue"
+      hasBg
+      skew={{ way: "vertical", amount: "positive" }}
+    >
       fdfdfd
     </Box>
     <Link to="/page-2/">Go to page 2</Link>
