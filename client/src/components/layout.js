@@ -14,6 +14,8 @@ import "./layout.css";
 
 import { ThemeProvider } from "styled-components";
 import * as theme from "../theme";
+import styled from "styled-components";
+import { themeGet } from "@styled-system/theme-get";
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -28,27 +30,23 @@ const Layout = ({ children }) => {
 
   return (
     <ThemeProvider theme={theme}>
-      <>
+      <Wrapper>
         <Header siteTitle={data.site.siteMetadata.title} />
-        <div
-          style={{
-            margin: `0 auto`,
-            maxWidth: 960,
-            padding: `0px 1.0875rem 1.45rem`,
-            paddingTop: 0,
-          }}
-        >
-          <main>{children}</main>
-          <footer>
-            © {new Date().getFullYear()}, Built with
-            {` `}
-            <a href="https://www.gatsbyjs.org">Gatsby</a>
-          </footer>
-        </div>
-      </>
+        <main>{children}</main>
+        <footer>
+          © {new Date().getFullYear()}, Built with
+          {` `}
+          <a href="https://www.gatsbyjs.org">Gatsby</a>
+        </footer>
+      </Wrapper>
     </ThemeProvider>
   );
 };
+
+const Wrapper = styled.div`
+  background: ${themeGet("colors.gradient.lightBlue")};
+  height: 100vh;
+`;
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,

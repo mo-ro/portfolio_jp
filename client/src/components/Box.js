@@ -9,6 +9,7 @@ import {
   border,
   shadow,
   layout,
+  flexbox,
 } from "styled-system";
 import PropTypes from "prop-types";
 import systemPropTypes from "@styled-system/prop-types";
@@ -30,6 +31,7 @@ const Wrapper = styled.div`
   ${shadow}
   ${layout}
   ${background}
+  ${flexbox}
 
   ${props => {
     let direction;
@@ -77,6 +79,10 @@ const Wrapper = styled.div`
     }`}
 `;
 
+Box.defaultProps = {
+  bg: "white",
+};
+
 Box.propTypes = {
   as: PropTypes.oneOf(["div", "button", "a"]),
   children: PropTypes.node,
@@ -87,6 +93,8 @@ Box.propTypes = {
   hasBg: PropTypes.bool,
   gradient: PropTypes.string,
   ...systemPropTypes.background,
+  ...systemPropTypes.flexbox,
+  ...systemPropTypes.layout,
 };
 
 export default Box;
