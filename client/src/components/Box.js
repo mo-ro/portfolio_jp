@@ -3,7 +3,7 @@ import styled from "styled-components";
 import {
   space,
   width,
-  fontSize,
+  typography,
   color,
   background,
   border,
@@ -18,14 +18,14 @@ import { themeGet } from "@styled-system/theme-get";
 
 const Box = ({ children, ...props }) => (
   <Wrapper border="2" borderColor="black" boxShadow="medium" {...props}>
-    <p className="a">{children}</p>
+    <span>{children}</span>
   </Wrapper>
 );
 
 const Wrapper = styled.div`
   ${space}
   ${width}
-  ${fontSize}
+  ${typography}
   ${color}
   ${border}
   ${shadow}
@@ -53,11 +53,15 @@ const Wrapper = styled.div`
       }
       return `
         transform: skew${direction}(${amount}deg);
-        && > *, &&::before {transform: skew${direction}(${-1 * amount}deg)}
+        && > *, &&::before {
+          transform: skew${direction}(${-1 * amount}deg);
+          display: block
+        }
       `;
     }
   }}
 
+  border-radius: ${themeGet("radii.1")}px;
   box-sizing: border-box;
   overflow: hidden;
   position: relative;

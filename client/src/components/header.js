@@ -21,10 +21,12 @@ const Header = ({ siteTitle, ...props }) => (
         aaa
       </Box>
       <Box
+        as="button"
         gradient="colors.button.orange"
         skew={{ way: "horizontal", amount: "negative" }}
         hasBg
         width={140}
+        fontWeight={themeGet("fontWeight.bold")}
       >
         メニュー
       </Box>
@@ -33,7 +35,7 @@ const Header = ({ siteTitle, ...props }) => (
 );
 
 const Wrapper = styled.header`
-  padding: ${themeGet("space.2")}px;
+  padding: ${themeGet("space.2")};
 `;
 
 Header.propTypes = {

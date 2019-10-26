@@ -7,6 +7,7 @@ import SEO from "../components/seo";
 
 import Box from "@components/Box";
 import Avatar from "@components/Avatar";
+import Button from "@components/Button";
 
 const IndexPage = props => (
   <Layout>
@@ -17,13 +18,13 @@ const IndexPage = props => (
     <Box hasBg skew={{ way: "horizontal", amount: "positive" }}>
       fdfdfd
     </Box>
-    <Box
-      gradient="colors.gradient.blue"
+    <Button
+      gradient="colors.gradient.orange"
       hasBg
       skew={{ way: "vertical", amount: "positive" }}
     >
-      fdfdfd
-    </Box>
+      ボタン
+    </Button>
     <Avatar src="https://pbs.twimg.com/profile_images/1176835197372731392/MhDRmYmU_400x400.jpg"></Avatar>
     <Link to="/page-2/">Go to page 2</Link>
   </Layout>
