@@ -1,20 +1,32 @@
-import React from "react"
-import { Link } from "gatsby"
+import React from "react";
+import * as THREE from "three";
+import {Canvas} from "react-three-fiber";
 
-import Layout from "../components/layout"
-import Image from "../components/image"
-import SEO from "../components/seo"
+import Layout from "../components/layout";
+import Scene from "../components/scene";
+import Floor from "../components/floor";
+
+import "../style/index.css";
 
 const IndexPage = () => (
   <Layout>
-    <SEO title="Home" />
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-      <Image />
-    </div>
-    <Link to="/page-2/">Go to page 2</Link>
+    <Canvas
+      className="canvas"
+      invalidateFrameloop
+      camera={{ position: [0, 4, 10], fov: 100 }}
+      gl={{ alpha: false }}
+      onCreated={({ gl, scene }) => {
+        scene.background = new THREE.Color('#ffffff')
+        scene.rotation.set(Math.PI / 10, 0, 0);
+        gl.shadowMap.enabled = true
+        gl.shadowMap.type = THREE.PCFSoftShadowMap
+      }
+    }>
+      <Scene>
+        <ambientLight intensity={1} />
+        <Floor />
+      </Scene>
+    </Canvas>
   </Layout>
 )
 
