@@ -1,38 +1,21 @@
 import React from "react";
 import * as THREE from "three";
-import { EdgesGeometry } from "three";
 
 class Floor extends React.Component {
   constructor() {
     super();
-    this.width = 200;
+    this.width = 400;
     this.height = 200;
     this.scale = 5;
     this.cols = this.width / this.scale;
     this.rows = this.height / this.scale;
   }
 
-  // renderFloor() {
-  //   let rects = [];
-  //   for(let i = 0; i < this.cols; i++) {
-  //     for(let j = 0; j < this.rows; j++) {
-  //       rects.push(
-  //         <>
-  //           <planeBufferGeometry attach="geometry" args={[1000, 1000]} />
-  //           <meshPhongMaterial attach="material" color="#222222" wireframe />
-  //         </>
-  //       )
-  //     }
-  //   }
-  //   return rects;
-  // }
-
   render() {
     let rects = [];
 
-    var planeGeometry = new THREE.PlaneBufferGeometry(this.scale, this.scale);
-    var edges = new THREE.EdgesGeometry(planeGeometry);
-    var lineBox = new THREE.LineSegments( edges, new THREE.LineBasicMaterial({ color: 0xff55dd }));
+    let planeGeometry = new THREE.PlaneBufferGeometry(this.scale, this.scale);
+    let edges = new THREE.EdgesGeometry(planeGeometry);
 
     for(let i = 0; i < this.cols; i++) {
       for(let j = 0; j < this.rows; j++) {

@@ -4,10 +4,10 @@ const Scene = ({children}) => {
   return (
     <>
       <fog attach="fog" args={["#ffffff", 10, 100]} />
-      <mesh>
+      {/* <mesh>
         <boxBufferGeometry attach='geometry' args={[1, 1, 1]} />
         <meshNormalMaterial attach='material' />
-      </mesh>
+      </mesh> */}
       {children}
     </>
   );
