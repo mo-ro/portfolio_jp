@@ -1,18 +1,26 @@
-import React from "react";
+import React, {useMemo} from "react";
 import * as THREE from "three";
 import PropTypes from "prop-types";
+import {a, interpolate} from "react-spring/three";
 
-const Panel = ({url, ...props}) => {
-  const texture = new THREE.TextureLoader().load(url);
+import PanelHeading from "./panelHeading";
+
+const Panel = ({url, mouse, ...props}) => {
+  const texture = useMemo(() => new THREE.TextureLoader().load(url, tex => {
+    tex.minFilter = THREE.LinearFilter;
+  }), [url]);
   const height = 8;
   const width = height * 1.618;
   return (
-    <mesh {...props}>
-      <planeBufferGeometry attach="geometry" args={[width, height]} />
-      <meshLambertMaterial attach="material">
-        <primitive attach="map" object={texture}  />
-      </meshLambertMaterial>
-    </mesh>
+    <a.group rotation={mouse.interpolate((x, y) => [y/3000, x/3000, 0])}>
+      <a.mesh {...props}>
+        <planeBufferGeometry attach="geometry" args={[width, height]} />
+        <meshLambertMaterial attach="material">
+          <primitive attach="map" object={texture}  />
+        </meshLambertMaterial>
+        <PanelHeading position={[0, 3, 0]}>About</PanelHeading>
+      </a.mesh>
+    </a.group>
   );
 };
 
