@@ -621,7 +621,12 @@ pre tt:after {
   }
 }
 
+html {
+  overscroll-behavior: none;
+}
+
 .globalContainer {
   height: 100vh;
   width: 100vw;
+  position: absolute;
 }

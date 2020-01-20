@@ -5,7 +5,7 @@ class Floor extends React.Component {
   constructor() {
     super();
     this.width = 400;
-    this.height = 200;
+    this.height = 400;
     this.scale = 5;
     this.cols = this.width / this.scale;
     this.rows = this.height / this.scale;
