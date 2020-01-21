@@ -7,6 +7,7 @@ import Layout from "../components/layout";
 import Scene from "../components/scene";
 import Floor from "../components/floor";
 import Panels from "../components/panels";
+import Panel from "../components/panel";
 
 import useYScroll from "../helpers/useYScroll";
 
@@ -43,7 +44,7 @@ const IndexPage = () => {
           gl.shadowMap.enabled = true
           gl.shadowMap.type = THREE.PCFSoftShadowMap
         }}
-        onPointerMove={onMouseMove}
+        onMouseMove={onMouseMove}
         >
         <Scene>
           <ambientLight intensity={1} />
