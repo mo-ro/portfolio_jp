@@ -20,7 +20,7 @@ class Floor extends React.Component {
     for(let i = 0; i < this.cols; i++) {
       for(let j = 0; j < this.rows; j++) {
         rects.push(
-          <mesh position={[i * this.scale, j * this.scale, 0]}>
+          <mesh key={i + "-" + j} position={[i * this.scale, j * this.scale, 0]}>
             {/* <mesh>
               <planeBufferGeometry attach="geometry" args={[this.scale, this.scale]} position={[0, -1, 0]} />
               <meshPhongMaterial attach="material" color="white" />

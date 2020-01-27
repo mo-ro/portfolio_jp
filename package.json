@@ -25,7 +25,10 @@
     "three": "^0.112.1"
   },
   "devDependencies": {
-    "prettier": "^1.19.1"
+    "glsl-noise": "^0.0.0",
+    "glslify": "^7.0.0",
+    "prettier": "^1.19.1",
+    "raw-loader": "^4.0.0"
   },
   "keywords": [
     "gatsby"

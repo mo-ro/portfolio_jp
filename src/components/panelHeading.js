@@ -2,7 +2,7 @@ import React, {useMemo} from "react";
 import {useThree} from "react-three-fiber";
 import {a} from "react-spring/three";
 
-const PanelHeading = ({ children, position, opacity, color = 'black', fontSize = 100 }) => {
+const PanelHeading = ({ children, position, opacity, color = 'black', fontSize = 140 }) => {
   const {
     size: { width, height },
     viewport: { width: viewportWidth, height: viewportHeight }

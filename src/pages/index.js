@@ -11,19 +11,21 @@ import Panel from "../components/panel";
 
 import useYScroll from "../helpers/useYScroll";
 
-import image from "../images/lowpolyworld6.png";
-import aboutImage from "../images/about.png";
+import image from "../images/lowpolyworld.png";
+import aboutImage from "../images/lowpolyworld-wire.png";
 
 import "../style/index.css";
 
 const panelData = [
   {
     heading: "About",
-    image: image
+    image: image,
+    hoverImage: aboutImage
   },
   {
     heading: "Works",
-    image: image
+    image: image,
+    hoverImage: aboutImage
   },
 ]
 
@@ -49,7 +51,7 @@ const IndexPage = () => {
         <Scene>
           <ambientLight intensity={1} />
           <a.group position-z={y.interpolate(y => (y / 1000) * 25)}>
-            {/* <Panel url={image} position={[0, 5, 2]} opacity={y.interpolate([200, 320], [1, 0])} mouse={mouse} /> */}
+            {/* <Panel url={image} position={[0, 5, 2]} opacity={y.interpolate([200, 320], [1, 0])} mouse={mouse} y={y} /> */}
             <Panels panels={panelData} mouse={mouse} y={y} />
             <Floor />
           </a.group>
